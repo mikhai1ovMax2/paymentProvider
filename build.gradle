@@ -1,0 +1,45 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.2'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '21'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.2'
+//	implementation 'org.postgresql:postgresql:42.5.1'
+//	implementation 'io.r2dbc:r2dbc-postgresql:1.0.0.M5'
+	// https://mvnrepository.com/artifact/io.r2dbc/r2dbc-postgresql
+	implementation 'io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE'
+
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	implementation 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+
+	testImplementation 'io.projectreactor:reactor-test:3.6.2'
+	implementation 'org.apache.maven.plugins:maven-compiler-plugin:3.12.1'
+
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
