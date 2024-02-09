@@ -1,7 +1,6 @@
 package com.example.paymentprovider.model;
 
 import lombok.Data;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -27,7 +26,7 @@ public class Merchant {
     private LocalDateTime createdAt;
 
     @Column("updated_at")
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
     @Column("wallet_id")
     private Long wallet_id;

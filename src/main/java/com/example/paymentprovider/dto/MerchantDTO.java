@@ -18,6 +18,9 @@ public class MerchantDTO {
 
     private LocalDateTime createdAt;
 
+    private LocalDateTime updatedAt;
+
+
     private Long wallet_id;
 
 

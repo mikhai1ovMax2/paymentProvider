@@ -1,4 +1,4 @@
-version: '1'
+version: '3'
 
 services:
   paymentProvider:
@@ -8,14 +8,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-#    environment:
-#      - PROSELYTE_R2DBC_URL=r2dbc:pool:postgres://host.docker.internal:5432/postgres
-#      - PROSELYTE_R2DBC_USER=postgres
-#      - PROSELYTE_R2DBC_PASSWORD=1111
-#      - PROSELYTE_DB_URL=jdbc:postgresql://host.docker.internal:5432/postgres
-#      - PROSELYTE_DB_USER=postgres
-#      - PROSELYTE_DB_PASSWORD=postgres
-#      - PROSELYTE_AWS_REGION=us-east-1
-#    deploy:
-#      mode: replicated
-#      replicas: 3
+    environment:
+      - PROVIDER_R2DBC_URL=r2dbc:pool:postgres://host.docker.internal:5432/postgres
+      - PROVIDER_R2DBC_USERNAME=postgres
+      - PROVIDER_R2DBC_PASSWORD=1111
+    deploy:
+      mode: replicated
+      replicas: 1
