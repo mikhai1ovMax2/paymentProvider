@@ -23,12 +23,14 @@ spring:
     url: ${PROVIDER_R2DBC_URL}
     username: ${PROVIDER_R2DBC_USERNAME}
     password: ${PROVIDER_R2DBC_PASSWORD}
-    pool:
-      enabled: true
+#    pool:
+#      enabled: true
   data:
     r2dbc:
       repositories:
         enabled: true
+  flyway:
+    enabled: true
 logging:
   level:
     web: debug
