@@ -2,10 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.2'
 	id 'io.spring.dependency-management' version '1.1.4'
-	id "org.flywaydb.flyway" version "10.7.2"
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-gradle-plugin
-
-
+	id "org.flywaydb.flyway" version '8.5.13'
 }
 
 group = 'com.example'
@@ -21,11 +18,14 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.2.2'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.2'
-//	implementation 'org.postgresql:postgresql:42.5.1'
-//	implementation 'io.r2dbc:r2dbc-postgresql:1.0.0.M5'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+
+	implementation 'org.postgresql:postgresql:42.7.1'
 	implementation 'io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE'
 
 	compileOnly 'org.projectlombok:lombok:1.18.30'
@@ -37,32 +37,13 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
 	testImplementation 'io.projectreactor:reactor-test:3.6.2'
-	// https://mvnrepository.com/artifact/org.flywaydb/flyway-database-postgresql
-	implementation 'org.flywaydb:flyway-core:10.8.1'
-//	compileClasspath 'org.flywaydb:flyway-core:10.7.2'
-	runtimeOnly 'org.flywaydb:flyway-database-postgresql:10.8.1'
+	implementation 'org.flywaydb:flyway-core:8.5.13'
 
-//	implementation 'org.apache.maven.plugins:maven-compiler-plugin:3.12.1'
 	implementation 'org.springframework.boot:spring-boot-gradle-plugin:3.2.2'
-	implementation 'org.postgresql:postgresql:42.7.1'
-	testImplementation 'org.flywaydb.flyway-test-extensions:flyway-spring-test:7.0.0'
 
-
-
-//	classpath 'org.flywaydb:flyway-database-postgresql:10.7.2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-flyway {
-	user = 'postgres'
-	password = '1111'
-	url = 'jdbc:postgresql://localhost:5432/postgres?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;connectionCollation=utf8_general_ci&amp;characterSetResults=UTF-8'
-	schemas = ['payment_provider_2']
-	createSchemas = true
-	locations =['filesystem:./src/main/resourses/db/migration']
-}
-
-defaultTasks 'flywayMigrate'

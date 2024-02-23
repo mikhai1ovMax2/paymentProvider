@@ -1,36 +1,27 @@
-#spring:
-#  r2dbc:
-#    username: postgres
-#    password: 1111
-#    url: r2dbc:postgresql://localhost:5432/postgres
-#    pool:
-#      enabled: true
-#  data:
-#    r2dbc:
-#      repositories:
-#        enabled: true
-#logging:
-#  level:
-#    web: debug
-#    sql: debug
-
 spring:
-#  profiles:
-#    active: local
+  profiles:
+    active: local
   config:
     import: optional:file:.env[.properties]
   r2dbc:
     url: ${PROVIDER_R2DBC_URL}
     username: ${PROVIDER_R2DBC_USERNAME}
     password: ${PROVIDER_R2DBC_PASSWORD}
-#    pool:
-#      enabled: true
   data:
     r2dbc:
       repositories:
         enabled: true
   flyway:
+    url: ${PROVIDER_JDBC_URL}
+    user: ${PROVIDER_JDBC_USERNAME}
+    password: ${PROVIDER_JDBC_PASSWORD}
+    locations: db/migration
     enabled: true
+    default-schema: payment_provider
+    create-schemas: true
+    schemas: payment_provider
+
+
 logging:
   level:
     web: debug

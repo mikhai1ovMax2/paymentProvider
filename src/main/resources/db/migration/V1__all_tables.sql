@@ -9,8 +9,7 @@ create table payment_provider.card
     amount      numeric
 );
 
-alter table payment_provider.card
-    owner to postgres;
+
 
 create table payment_provider.customer
 (
@@ -25,8 +24,23 @@ create table payment_provider.customer
             references payment_provider.card
 );
 
-alter table payment_provider.customer
-    owner to postgres;
+-- create sequence payment_provider.customer_id_seq
+--     as integer;
+--
+--
+-- alter sequence payment_provider.customer_id_seq owned by payment_provider_reserve.customer.id;
+--
+-- create sequence payment_provider.card_id_seq
+--     as integer;
+--
+--
+-- alter sequence payment_provider.card_id_seq owned by payment_provider_reserve.card.id;
+--
+create sequence payment_provider.webhook_id_seq
+    as integer;
+
+
+
 
 create table payment_provider.webhook
 (
@@ -39,8 +53,7 @@ create table payment_provider.webhook
     response_code     integer
 );
 
-alter table payment_provider.webhook
-    owner to postgres;
+
 
 create table payment_provider.merchant_wallet
 (
@@ -51,8 +64,6 @@ create table payment_provider.merchant_wallet
     currency text
 );
 
-alter table payment_provider.merchant_wallet
-    owner to postgres;
 
 create table payment_provider.merchant
 (
@@ -68,8 +79,7 @@ create table payment_provider.merchant
     updated_at timestamp
 );
 
-alter table payment_provider.merchant
-    owner to postgres;
+
 
 create table payment_provider.transaction
 (
@@ -99,6 +109,8 @@ create table payment_provider.transaction
     type           varchar
 );
 
-alter table payment_provider.transaction
-    owner to postgres;
-
+-- create sequence payment_provider.transaction_id_seq
+--     as integer;
+--
+--
+-- alter sequence payment_provider.transaction_id_seq owned by payment_provider_reserve.transaction.id;

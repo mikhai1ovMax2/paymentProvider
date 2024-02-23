@@ -12,6 +12,9 @@ services:
       - PROVIDER_R2DBC_URL=r2dbc:pool:postgres://host.docker.internal:5432/postgres
       - PROVIDER_R2DBC_USERNAME=postgres
       - PROVIDER_R2DBC_PASSWORD=1111
+      - PROVIDER_JDBC_URL=jdbc:postgresql://host.docker.internal:5432/postgres
+      - PROVIDER_JDBC_USERNAME=postgres
+      - PROVIDER_JDBC_PASSWORD=1111
     deploy:
       mode: replicated
       replicas: 1

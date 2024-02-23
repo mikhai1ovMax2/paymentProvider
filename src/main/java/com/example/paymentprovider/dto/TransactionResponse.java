@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @Builder
 public class TransactionResponse {
-
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long externalTransactionId;
 
