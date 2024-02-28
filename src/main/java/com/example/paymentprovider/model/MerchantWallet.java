@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@Table(schema = "payment_provider", name = "merchant_wallet")
+@Table(schema = "payment_provider_reserve", name = "merchant_wallet")
 public class MerchantWallet {
 
     @Id

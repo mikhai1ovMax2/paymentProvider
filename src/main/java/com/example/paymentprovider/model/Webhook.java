@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-@Table(schema = "payment_provider", name = "webhook")
+@Table(schema = "payment_provider_reserve", name = "webhook")
 public class Webhook {
 
     @Id

@@ -5,6 +5,7 @@ import com.example.paymentprovider.model.TransactionStatus;
 import com.example.paymentprovider.model.TransactionType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
@@ -13,6 +14,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 public class TransactionDTO {
 
     private Long id;

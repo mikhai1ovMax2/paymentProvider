@@ -8,7 +8,7 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.time.LocalDateTime;
 
 @Data
-@Table(schema = "payment_provider", name = "transaction")
+@Table(schema = "payment_provider_reserve", name = "transaction")
 public class Transaction {
 
     @Id

@@ -1,8 +1,8 @@
 spring:
   r2dbc:
-    username: postgres
-    password: 1111
-    url: r2dbc:postgresql://localhost:5432/postgres
+    username: ${CONTAINER.URL}
+    password: ${CONTAINER.PASSWORD}
+    url: ${CONTAINER.R2DBC.URL}
     pool:
       enabled: true
   data:
@@ -10,9 +10,9 @@ spring:
       repositories:
         enabled: true
   flyway:
-    url: jdbc:postgresql://localhost:5432/postgres
-    user: postgres
-    password: 1111
+    user: ${CONTAINER.USERNAME}
+    password: ${CONTAINER.PASSWORD}
+    url: ${CONTAINER.URL}
     locations: db/migration
     enabled: true
     default-schema: payment_provider

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
-@Table(schema = "payment_provider", name = "card")
+@Table(schema = "payment_provider_reserve", name = "card")
 public class Card {
 
     @Id
